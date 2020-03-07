@@ -27,7 +27,7 @@ from roblopy import Users
 
 `Users.GetIdByUsername(username)` - Returns the User ID of the Username.
 
-`Users.UserCanManageAsset(id, assetId)` - Returns true if User can manage Asset, else false.
+`Users.CanManage(id, assetId)` - Returns true if User can manage Asset, else false.
 
 `Users.User(username)` or `Users.UserById(id)` - Returns class of the User's ID, Username, Avatar Uri, Avatar Final, and Is Online.
 
