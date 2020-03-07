@@ -11,12 +11,12 @@ pip install roblopy
 
 How to import?
 ```
-from roblopy.api.[name] import [class]
+from roblopy import [class]
 ```
 
 For example:
 ```
-from roblopy.api.user import Users
+from roblopy import Users
 ```
 
 ## Documentation
