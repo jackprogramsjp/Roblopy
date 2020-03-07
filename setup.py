@@ -1,11 +1,15 @@
-from distutils.core import setup
+from setuptools import setup
+
+long_description = open("README.md", "r").read()
 
 setup(
     name="roblopy",
     packages=["roblopy", "roblopy.api"],
-    version="1.0.1",
+    version="1.0.4",
     license="MIT",
     description="Roblox API built in Python",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author="Jack Murrow",
     author_email="jack.murrow122005@gmail.com",
     url="https://github.com/jackprogramsjp/Roblopy",
