@@ -1,7 +1,7 @@
 import urllib.request
 import json
 
-class _User:
+class User:
     Id = None
     Username = None
     AvatarUri = None
@@ -29,14 +29,14 @@ class Users:
     @staticmethod
     def User(username):
         response = urllib.request.urlopen("https://api.roblox.com/users/get-by-username?username=" + str(username))
-        return _User(json.loads(response.read()))
+        return User(json.loads(response.read()))
 
     @staticmethod
     def UserById(id):
         response = urllib.request.urlopen("https://api.roblox.com/users/" + str(id))
-        return _User(json.loads(response.read()))
+        return User(json.loads(response.read()))
 
     @staticmethod
-    def UserCanManageAsset(id, assetId):
+    def CanManage(id, assetId):
         response = urllib.request.urlopen("http://api.roblox.com/users/" + str(id) + "/canmanage/" + str(assetId))
         return json.loads(response.read())["CanManage"]
