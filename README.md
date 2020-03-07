@@ -1,6 +1,8 @@
 # Roblopy
 Roblox API built in Python.
 
+No module is required to use Roblopy. Roblopy uses built-in python modules.
+
 ## Installation
 To install Roblopy:
 ```
