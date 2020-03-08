@@ -15,6 +15,7 @@ class Asset:
     PriceInRobux = None
     Sales = None
     IsNew = None
+    IsForSale = None
     IsPublicDomain = None
     IsLimited = None
     IsLimitedUnique = None
@@ -36,6 +37,7 @@ class Asset:
         self.PriceInRobux = response["PriceInRobux"]
         self.Sales = response["Sales"]
         self.IsNew = response["IsNew"]
+        self.IsForSale = response["IsForSale"]
         self.IsPublicDomain = response["IsPublicDomain"]
         self.IsLimited = response["IsLimited"]
         self.IsLimitedUnique = response["IsLimitedUnique"]
@@ -49,3 +51,4 @@ class Assets:
     def UserHasAsset(userId, assetId):
         return requests.get(
             "https://api.roblox.com/Ownership/HasAsset?userId=" + str(userId) + "&assetId=" + str(assetId)).json()
+
