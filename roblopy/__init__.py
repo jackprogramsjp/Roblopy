@@ -1,2 +1,4 @@
-# Class Modules
-from .api.user import Users
+# Classes
+from roblopy.user import Users
+from roblopy.user import GetUserFromUsername
+from roblopy.user import GetUserFromId

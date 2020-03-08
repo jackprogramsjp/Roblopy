@@ -1,36 +1,35 @@
 # Roblopy
+
+![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)
+
 Roblox API built in Python.
 
-No module is required to use Roblopy. Roblopy uses built-in python modules.
+## Installing
 
-## Installation
-To install Roblopy:
+Here is a simple way to install:
 ```
 pip install roblopy
 ```
 
-How to import?
+Here is a simple way to upgrade:
 ```
-from roblopy import [class]
+pip install roblopy --upgrade
 ```
 
-For example:
-```
+## Example
+
+```python
 from roblopy import Users
+
+UserId = Users.GetIdFromUsername("NoobsterStudio")
+
+print("Noobster's User ID is " + UserId)
 ```
 
 ## Documentation
 
-### Users
+https://github.com/jackprogramsjp/Roblopy/wiki
 
-`Users.GetUsernameById(id)` - Returns the Username of the User ID.
+## Requirements
 
-`Users.GetIdByUsername(username)` - Returns the User ID of the Username.
-
-`Users.CanManage(id, assetId)` - Returns true if User can manage Asset, else false.
-
-`Users.User(username)` or `Users.UserById(id)` - Returns class of the User's ID, Username, Avatar Uri, Avatar Final, and Is Online.
-
-## Note
-
-I will probably not update much of this at all, because there is already pyblox (it's a great Roblox API wrapper). If you ever want to use this, you may.
+* requests
