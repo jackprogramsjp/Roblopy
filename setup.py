@@ -5,7 +5,7 @@ long_description = open("README.md", "r").read()
 setup(
     name="roblopy",
     packages=["roblopy"],
-    version="1.1.0",
+    version="1.2",
     license="MIT",
     description="Roblox API built in Python",
     long_description=long_description,
