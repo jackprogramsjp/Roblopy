@@ -4,6 +4,8 @@
 
 Roblox API built in Python.
 
+**Project will no longer be maintained.**
+
 ## Installing
 
 Here is a simple way to install:
