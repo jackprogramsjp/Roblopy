@@ -32,4 +32,4 @@ https://github.com/jackprogramsjp/Roblopy/wiki
 
 ## Requirements
 
-* requests
+* `pip install requests`
