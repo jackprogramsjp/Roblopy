@@ -21,9 +21,9 @@ pip install roblopy --upgrade
 ```python
 from roblopy import Users
 
-UserId = Users.GetIdFromUsername("NoobsterStudio")
+UserId = Users.GetIdFromUsername("ROBLOX")
 
-print("Noobster's User ID is " + UserId)
+print("Roblox's User ID is " + UserId)
 ```
 
 ## Documentation
