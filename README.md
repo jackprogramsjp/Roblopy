@@ -23,7 +23,7 @@ from roblopy import Users
 
 UserId = Users.GetIdFromUsername("ROBLOX")
 
-print("Roblox's User ID is " + UserId)
+print("Roblox's User ID is " + str(UserId))
 ```
 
 ## Documentation
