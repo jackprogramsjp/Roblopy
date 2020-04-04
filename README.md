@@ -4,8 +4,6 @@
 
 Roblox API built in Python.
 
-**Project will no longer be maintained.**
-
 ## Installing
 
 Here is a simple way to install:
@@ -13,12 +11,12 @@ Here is a simple way to install:
 pip install roblopy
 ```
 
-Here is a simple way to upgrade:
+Here is a simple way to upgrade the package to the newest version:
 ```
 pip install roblopy --upgrade
 ```
 
-## Example
+## Quick Example
 
 ```python
 from roblopy import Users
@@ -34,4 +32,5 @@ https://github.com/jackprogramsjp/Roblopy/wiki
 
 ## Requirements
 
-* `pip install requests`
+* requests
+
