@@ -1,6 +1,6 @@
 from roblopy import Users, Friends, Groups
 
-MyUserId = Users.GetIdFromUsername("NoobsterStudio")
+MyUserId = Users.GetIdFromUsername("Coeptus")
 
 for user in Friends.GetFriends(MyUserId):
     userId = user["Id"]
