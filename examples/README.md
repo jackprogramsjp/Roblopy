@@ -1,6 +1,6 @@
 # Examples
 
-## [First 50 Users](examples/first_50_users.py)
+## [First 50 Users](first_50_users.py)
 
 A simple script where you can get the first 50 users' name and ID. Here is a preview of running the script.
 
