@@ -6,3 +6,6 @@ class NotFound(Exception):
 
 class BadRequest(Exception):
     pass
+
+class ErrorMessage(Exception):
+    pass
