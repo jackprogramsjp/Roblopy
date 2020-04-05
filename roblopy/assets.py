@@ -1,4 +1,4 @@
-from roblopy.utils.request import get
+from .utils.request import get
 
 class Asset:
     ProductType = None
