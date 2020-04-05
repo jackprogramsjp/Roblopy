@@ -4,6 +4,9 @@ from .errors import *
 def get(url: str):
     response = requests.get(url)
 
+    if "errorMessage" in response.json():
+        raise ErrorMessage(f"Error message is {response.json()['errorMessage']}. Data is {response.text}.")
+
     if response.status_code == 200:
         return response
     elif response.status_code == 404:
