@@ -6,4 +6,4 @@ from roblopy.assets import Assets
 from roblopy.assets import Asset
 from roblopy.groups import Groups
 from roblopy.groups import Group
-from roblopy.utils.errors import BadStatus, NotFound, BadRequest
+from .utils.errors import BadStatus, NotFound, BadRequest, ErrorMessage
