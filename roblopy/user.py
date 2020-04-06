@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 from .utils.request import get
 
 class User:
