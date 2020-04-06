@@ -5,7 +5,7 @@ long_description = open("README.md", "r").read()
 setup(
     name="roblopy",
     packages=["roblopy", "roblopy.utils"],
-    version="3.5",
+    version="3.7",
     license="MIT",
     description="Roblox API built in Python",
     long_description=long_description,
@@ -15,10 +15,12 @@ setup(
     url="https://github.com/jackprogramsjp/Roblopy",
     keywords=["Roblox", "Roblox Python", "Roblox Api"],
     install_requires=[
-        "requests"
+        "requests",
+        "beautifulsoup4"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License"
     ]
 )
+
