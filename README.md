@@ -33,4 +33,4 @@ https://github.com/jackprogramsjp/Roblopy/wiki
 ## Requirements
 
 * requests
-
+* Beautiful Soup
