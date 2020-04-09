@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from .utils.request import get
+from .utils.request import get, no_data_get
 
 class User:
     Id = None
