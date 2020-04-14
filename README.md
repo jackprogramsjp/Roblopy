@@ -30,10 +30,6 @@ print("Roblox's User ID is " + str(UserId))
 
 https://github.com/jackprogramsjp/Roblopy/wiki
 
-## Site
-
-https://roblopy.glitch.me/
-
 ## Requirements
 
 * requests
