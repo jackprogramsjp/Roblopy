@@ -69,9 +69,13 @@ class Users:
     def GetProfileDescription(userId):
         response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
         soup = BeautifulSoup(response, "html.parser")
-        description = soup.find("span", {"class": "profile-about-content-text linkify"}, text=True).get_text()
-
-        return description
+        
+        try:
+            description = soup.find("span", {"class": "profile-about-content-text linkify"}, text=True).get_text()
+        except AttributeError:
+            return None
+        else:
+            return description
 
     @staticmethod
     def IsOnline(userId):
