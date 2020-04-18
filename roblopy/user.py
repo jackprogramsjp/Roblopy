@@ -81,6 +81,17 @@ class Users:
             return description
 
     @staticmethod
+    def GetProfileStatus(userId):
+        response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
+        soup = BeautifulSoup(response, "html.parser")
+        status = soup.find_all("div", {"class": "hidden"})[0]["data-statustext"]
+
+        if status.strip() == "":
+            status = None
+
+        return status
+
+    @staticmethod
     def GetAvatarImage(userId):
         response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
         soup = BeautifulSoup(response, "html.parser")
