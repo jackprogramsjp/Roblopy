@@ -40,6 +40,7 @@ class Users:
         for group in response:
             if group["Id"] == groupId:
                 rank = group["Rank"]
+                break
 
         return rank
 
@@ -51,6 +52,7 @@ class Users:
         for group in response:
             if group["Id"] == groupId:
                 role = group["Role"]
+                break
 
         return role
 
@@ -62,6 +64,7 @@ class Users:
         for group in response:
             if group["Id"] == groupId and group["IsPrimary"]:
                 primary = True
+                break
 
         return primary
 
@@ -69,13 +72,29 @@ class Users:
     def GetProfileDescription(userId):
         response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
         soup = BeautifulSoup(response, "html.parser")
-        
+
         try:
             description = soup.find("span", {"class": "profile-about-content-text linkify"}, text=True).get_text()
         except AttributeError:
             return None
         else:
             return description
+
+    @staticmethod
+    def GetAvatarImage(userId):
+        response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
+        soup = BeautifulSoup(response, "html.parser")
+
+        try:
+            image = soup.find("span", {"class": "avatar-card-link avatar-image-link"}).img["src"]
+        except AttributeError:
+            return None
+        else:
+            return image
+
+    @staticmethod
+    def IsBanned(userId):
+        return get(f"https://users.roblox.com/v1/users/{userId}").json()["isBanned"]
 
     @staticmethod
     def IsOnline(userId):
