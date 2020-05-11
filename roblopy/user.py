@@ -4,14 +4,15 @@ from .utils.request import get, no_data_get
 class User:
     def __init__(self, userId):
         response = get(f"https://users.roblox.com/v1/users/{userId}").json()
+        status = get(f"https://users.roblox.com/v1/users/{userId}/status").json()["status"]
 
         self.Name = response["name"]
         self.DisplayName = response["displayName"]
         self.Id = response["id"]
         self.IsBanned = response["isBanned"]
         self.Created = response["created"]
-        self.Description = response["description"]
-        self.Status = get(f"https://users.roblox.com/v1/users/{userId}/status").json()["status"]
+        self.Description = response["description"] if response["description"] else None
+        self.Status = status if status else None
 
 class Users:
     @staticmethod
@@ -72,11 +73,21 @@ class Users:
 
     @staticmethod
     def GetProfileDescription(userId):
-        return get(f"https://users.roblox.com/v1/users/{userId}").json()["description"]
+        response = get(f"https://users.roblox.com/v1/users/{userId}").json()["description"]
+
+        if response == "":
+            return None
+
+        return response
 
     @staticmethod
     def GetProfileStatus(userId):
-        return get(f"https://users.roblox.com/v1/users/{userId}/status").json()["status"]
+        response = get(f"https://users.roblox.com/v1/users/{userId}/status").json()["status"]
+
+        if response == "":
+            return None
+
+        return response
 
     # @staticmethod
     # def GetProfileDescription(userId):
