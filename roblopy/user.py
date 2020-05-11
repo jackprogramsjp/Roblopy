@@ -2,14 +2,16 @@ from bs4 import BeautifulSoup
 from .utils.request import get, no_data_get
 
 class User:
-    Id = None
-    Username = None
-
     def __init__(self, userId):
-        response = get("http://api.roblox.com/users/" + str(userId)).json()
+        response = get(f"https://users.roblox.com/v1/users/{userId}").json()
 
-        self.Id = response["Id"]
-        self.Username = response["Username"]
+        self.Name = response["name"]
+        self.DisplayName = response["displayName"]
+        self.Id = response["id"]
+        self.IsBanned = response["isBanned"]
+        self.Created = response["created"]
+        self.Description = response["description"]
+        self.Status = get(f"https://users.roblox.com/v1/users/{userId}/status").json()["status"]
 
 class Users:
     @staticmethod
@@ -70,26 +72,34 @@ class Users:
 
     @staticmethod
     def GetProfileDescription(userId):
-        response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
-        soup = BeautifulSoup(response, "html.parser")
-
-        try:
-            description = soup.find("span", {"class": "profile-about-content-text linkify"}, text=True).get_text()
-        except AttributeError:
-            return None
-        else:
-            return description
+        return get(f"https://users.roblox.com/v1/users/{userId}").json()["description"]
 
     @staticmethod
     def GetProfileStatus(userId):
-        response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
-        soup = BeautifulSoup(response, "html.parser")
-        status = soup.find_all("div", {"class": "hidden"})[0]["data-statustext"]
+        return get(f"https://users.roblox.com/v1/users/{userId}/status").json()["status"]
 
-        if status.strip() == "":
-            status = None
-
-        return status
+    # @staticmethod
+    # def GetProfileDescription(userId):
+    #     response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
+    #     soup = BeautifulSoup(response, "html.parser")
+    #
+    #     try:
+    #         description = soup.find("span", {"class": "profile-about-content-text linkify"}, text=True).get_text()
+    #     except AttributeError:
+    #         return None
+    #     else:
+    #         return description
+    #
+    # @staticmethod
+    # def GetProfileStatus(userId):
+    #     response = no_data_get(f"https://www.roblox.com/users/{userId}/profile").content
+    #     soup = BeautifulSoup(response, "html.parser")
+    #     status = soup.find_all("div", {"class": "hidden"})[0]["data-statustext"]
+    #
+    #     if status.strip() == "":
+    #         status = None
+    #
+    #     return status
 
     @staticmethod
     def GetAvatarImage(userId):
