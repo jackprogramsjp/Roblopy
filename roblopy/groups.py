@@ -15,9 +15,16 @@ class Group:
 
         self.Name = response["Name"]
         self.Id = response["Id"]
-        self.Owner = response["Owner"]
-        self.OwnerName = response["Owner"]["Name"]
-        self.OwnerId = response["Owner"]["Id"]
+
+        if response["Owner"]:
+            self.Owner = response["Owner"]
+            self.OwnerName = response["Owner"]["Name"]
+            self.OwnerId = response["Owner"]["Id"]
+        else:
+            self.Owner = None
+            self.OwnerName = None
+            self.OwnerId = None
+
         self.EmblemUrl = response["EmblemUrl"]
         self.Description = response["Description"]
         self.Roles = response["Roles"]
