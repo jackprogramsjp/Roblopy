@@ -45,7 +45,21 @@ class Groups:
 
     @staticmethod
     def GetGroupOwner(groupId):
-        return get("https://api.roblox.com/groups/" + str(groupId)).json()["Owner"]["Name"]
+        response = get("https://api.roblox.com/groups/" + str(groupId)).json()
+
+        if response["Owner"]:
+            return response["Owner"]["Name"]
+        else:
+            return None
+
+    @staticmethod
+    def HasOwner(groupId):
+        response = get("https://api.roblox.com/groups/" + str(groupId)).json()
+
+        if response["Owner"]:
+            return True
+        else:
+            return False
 
     @staticmethod
     def GetGroupDescription(groupId):
