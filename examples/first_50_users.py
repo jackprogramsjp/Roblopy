@@ -7,5 +7,5 @@ for i in range(1, 51):
         pass
     else:
         print("==========")
-        print("Username: " + user.Username)
-        print("UserId: " + str(user.Id))
+        print("Username: " + user.name)
+        print("UserId: " + str(user.id))
