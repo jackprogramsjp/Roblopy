@@ -51,4 +51,5 @@ class Assets:
         :return: True or False.
         """
         return get(
-            "https://api.roblox.com/Ownership/HasAsset?userId=" + str(user_id) + "&assetId=" + str(asset_id)).json()
+            "https://api.roblox.com/Ownership/HasAsset?userId=" + str(user_id) + "&assetId=" + str(asset_id),
+            error=False, data=False).json()

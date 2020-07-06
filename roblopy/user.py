@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from .utils.request import get, no_data_get
+from .utils.request import get
 from typing import Optional
 
 
@@ -7,6 +7,7 @@ class User:
     """
     Represents a Roblox user.
     """
+
     def __init__(self, user_id: int):
         """
         Construct a new user class.
@@ -173,15 +174,13 @@ class Users:
         :param user_id: The User's ID.
         :return: The User's avatar image, but will return None if avatar image cannot be found or it doesn't exist.
         """
-        response = no_data_get(f"https://www.roblox.com/users/{user_id}/profile").content
-        soup = BeautifulSoup(response, "html.parser")
+        response = get(f"https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds={user_id}&size=420x420&format"
+                       "=Png&isCircular=false")
 
-        try:
-            image = soup.find("span", {"class": "avatar-card-link avatar-image-link"}).img["src"]
-        except AttributeError:
-            return None
+        if response.json()["data"]:
+            return response.json()["data"][0]["imageUrl"]
         else:
-            return image
+            return None
 
     @staticmethod
     def is_banned(user_id: int) -> bool:
