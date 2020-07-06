@@ -6,6 +6,7 @@ class Group:
     """
     Represents a Roblox group.
     """
+
     def __init__(self, group_id: int):
         """
         Construct a new group class.
@@ -188,13 +189,18 @@ class Groups:
         return [group["Name"] for group in response]
 
     @staticmethod
-    def get_recent_ally(group_id: int) -> dict:
+    def get_recent_ally(group_id: int) -> Optional[dict]:
         """
         Gets the recent ally of the group.
         :param group_id: The Group's ID.
-        :return: A dictionary of the ally information.
+        :return: A dictionary of the ally information, or None if no allies.
         """
-        return get("https://api.roblox.com/groups/" + str(group_id) + "/allies").json()["Groups"][0]
+        response = get("https://api.roblox.com/groups/" + str(group_id) + "/allies").json()["Groups"]
+
+        if response:
+            return response[0]
+        else:
+            return None
 
     @staticmethod
     def get_group_enemies(group_id: int) -> dict:
@@ -217,10 +223,15 @@ class Groups:
         return [group["Name"] for group in response]
 
     @staticmethod
-    def get_recent_enemy(group_id: int) -> dict:
+    def get_recent_enemy(group_id: int) -> Optional[dict]:
         """
         Gets the recent enemy of the group.
         :param group_id: The Group's ID.
-        :return: A dictionary of the enemy information.
+        :return: A dictionary of the enemy information, or None if no enemies.
         """
-        return get("https://api.roblox.com/groups/" + str(group_id) + "/enemies").json()["Groups"][0]
+        response = get("https://api.roblox.com/groups/" + str(group_id) + "/enemies").json()["Groups"]
+
+        if response:
+            return response[0]
+        else:
+            return None
